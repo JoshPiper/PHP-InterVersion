@@ -8,7 +8,11 @@ use Internet\InterVersion\Version;
 class VersionTest extends TestCase {
 	public function goodVersions(){
 		return [
-			['0.0.0', 0, 0, 0]
+			['0.0.0', 0, 0, 0],
+			['1.2.3', 1, 2, 3],
+			['3.2.1-alpha.1', 3, 2, 1, 'alpha.1'],
+			['4.5.6+sha512.pls', 4, 5, 6, '', 'sha512.pls'],
+			['6.5.4-beta2+20200313', 6, 5, 4, 'beta2', '20200313']
 		];
 	}
 
