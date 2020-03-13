@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 use Internet\InterVersion\Version;
+use Internet\InterVersion\Exceptions\VersionRangeException;
 
 class VersionTest extends TestCase {
 	public function goodVersions(){
@@ -34,9 +35,9 @@ class VersionTest extends TestCase {
 		return [
 			[TypeError::class, 'this', 'will', 'crash'],
 			[TypeError::class, [], 'big', 'boi'],
-			[AssertionError::class, -1, 0, 0],
-			[AssertionError::class, 0, -1, 0],
-			[AssertionError::class, 0, 0, -1]
+			[VersionRangeException::class, -1, 0, 0],
+			[VersionRangeException::class, 0, -1, 0],
+			[VersionRangeException::class, 0, 0, -1]
 		];
 	}
 

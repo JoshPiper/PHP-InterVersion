@@ -4,6 +4,8 @@
 namespace Internet\InterVersion;
 
 
+use Internet\InterVersion\Exceptions\VersionRangeException;
+
 class Version {
 	protected $major = 0;
 	protected $minor = 0;
@@ -13,9 +15,9 @@ class Version {
 	protected $build = "";
 
 	public function __construct(int $major = 0, int $minor = 0, int $patch = 0, string $pre = "", string $build = ""){
-		assert($major >= 0, 'major version must be at least zero.');
-		assert($minor >= 0, 'minor version must be at least zero.');
-		assert($patch >= 0, 'patch version must be at least zero.');
+		if ($major < 0){throw new VersionRangeException("major version must be at least zero, got {$major}");}
+		if ($minor < 0){throw new VersionRangeException("minor version must be at least zero, got {$major}");}
+		if ($patch < 0){throw new VersionRangeException("patch version must be at least zero, got {$major}");}
 
 		$this->major = $major;
 		$this->minor = $minor;
