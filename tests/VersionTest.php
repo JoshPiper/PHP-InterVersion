@@ -29,4 +29,28 @@ class VersionTest extends TestCase {
 		$version = new Version($major, $minor, $patch, $pre, $build);
 		$this->assertEquals($expected, (string)$version);
 	}
+
+	public function badVersions(){
+		return [
+			[TypeError::class, 'this', 'will', 'crash'],
+			[TypeError::class, [], 'big', 'boi'],
+			[AssertionError::class, -1, 0, 0],
+			[AssertionError::class, 0, -1, 0],
+			[AssertionError::class, 0, 0, -1]
+		];
+	}
+
+	/**
+	 * @dataProvider badVersions
+	 * @param string $expected
+	 * @param int $major
+	 * @param int $minor
+	 * @param int $patch
+	 * @param string $pre
+	 * @param string $build
+	 */
+	public function testInvalidConstruction(string $expected, int $major, int $minor, int $patch, string $pre = '', string $build = ''){
+		$this->expectException($expected);
+		$version = new Version($major, $minor, $patch, $pre, $build);
+	}
 }
