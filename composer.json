@@ -1,0 +1,11 @@
+{
+    "name": "internet/interversion",
+    "description": "Library for parsing, comparing and manipulating semantic versions.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "John Internet",
+        "email": "jonjon1234.github@gmail.com"
+    }],
+    "require": {}
+}
