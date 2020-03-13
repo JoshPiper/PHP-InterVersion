@@ -8,6 +8,14 @@
         "email": "jonjon1234.github@gmail.com"
     }],
 
+    "scripts": {
+        "test": "phpunit --debug -vvv --bootstrap vendor/autoload.php --colors=never --whitelist src/ --coverage-html coverage --testdox-html test.html tests",
+        "pcov-polyfill": [
+            "@composer require --dev pcov/clobber",
+            "pcov clobber"
+        ]
+    },
+
     "require": {
         "php": ">7.0"
     },
