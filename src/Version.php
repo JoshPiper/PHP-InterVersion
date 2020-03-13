@@ -12,7 +12,7 @@ class Version {
 	protected $pre = "";
 	protected $build = "";
 
-	public function __construct(int $major = 0, int $minor = 0, int $patch = 0, string $build = "", string $pre = ""){
+	public function __construct(int $major = 0, int $minor = 0, int $patch = 0, string $pre = "", string $build = ""){
 		assert($major >= 0, 'major version must be at least zero.');
 		assert($minor >= 0, 'minor version must be at least zero.');
 		assert($patch >= 0, 'patch version must be at least zero.');
