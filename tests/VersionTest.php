@@ -44,11 +44,11 @@ class VersionTest extends TestCase {
 	/**
 	 * @dataProvider badVersions
 	 * @param string $expected
-	 * @param int $major
-	 * @param int $minor
-	 * @param int $patch
-	 * @param string $pre
-	 * @param string $build
+	 * @param $major
+	 * @param $minor
+	 * @param $patch
+	 * @param $pre
+	 * @param $build
 	 */
 	public function testInvalidConstruction(string $expected, $major, $minor, $patch, $pre = '', $build = ''){
 		$this->expectException($expected);
