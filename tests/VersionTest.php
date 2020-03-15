@@ -50,7 +50,7 @@ class VersionTest extends TestCase {
 	 * @param string $pre
 	 * @param string $build
 	 */
-	public function testInvalidConstruction(string $expected, int $major, int $minor, int $patch, string $pre = '', string $build = ''){
+	public function testInvalidConstruction(string $expected, $major, $minor, $patch, $pre = '', $build = ''){
 		$this->expectException($expected);
 		$version = new Version($major, $minor, $patch, $pre, $build);
 	}
